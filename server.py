@@ -1,16 +1,21 @@
+print("> Importing Object Detection API ...")
 import object_detection_api
+
+print("> Starting web server ...")
 import os
 from PIL import Image
-from flask import Flask, request, Response
+from flask import request, Response
+from flask import Flask
 
 app = Flask(__name__)
+
 
 # for CORS
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,POST') # Put any other methods you need here
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST')  # Put any other methods you need here
     return response
 
 
@@ -63,8 +68,8 @@ def image():
 
 
 if __name__ == '__main__':
-	# without SSL
-    app.run(debug=True, host='0.0.0.0')
+    # without SSL
+    app.run(debug=True)
 
-	# with SSL
-    #app.run(debug=True, host='0.0.0.0', ssl_context=('ssl/server.crt', 'ssl/server.key'))
+# with SSL
+# app.run(debug=True, host='0.0.0.0', ssl_context=('ssl/server.crt', 'ssl/server.key'))

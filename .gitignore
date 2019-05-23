@@ -1,0 +1,5 @@
+*.pyc
+/.idea/*
+object_detection/
+object_detection_api.pyc
+/ssd_mobilenet_*
